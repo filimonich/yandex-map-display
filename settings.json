@@ -1,0 +1,22 @@
+{
+  "proxy": {
+    "/projects/Yandex-map-display/list": {
+      "target": "http://localhost:8181",
+      "pathRewrite": {
+        "^/projects/Yandex-map-display": ""
+      }
+    },
+    "/projects/Yandex-map-display/add": {
+      "target": "http://localhost:8181",
+      "pathRewrite": {
+        "^/projects/Yandex-map-display": ""
+      }
+    },
+    "/projects/Yandex-map-display/coords": {
+      "target": "http://localhost:8181",
+      "pathRewrite": {
+        "^/projects/Yandex-map-display": ""
+      }
+    }
+  }
+}
