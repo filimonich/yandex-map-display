@@ -14,10 +14,10 @@ export default class InteractiveMap {
 
   injectYMapsScript() {
     return new Promise((resolve) => {
-      const ymapsScript = document.createElement('script');
-      ymapsScript.src = 'https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU';
+      const ymapsScript = document.createElement("script");
+      ymapsScript.src = "https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU";
       document.body.appendChild(ymapsScript);
-      ymapsScript.addEventListener('load', resolve);
+      ymapsScript.addEventListener("load", resolve);
     });
   }
 
@@ -31,15 +31,15 @@ export default class InteractiveMap {
       clusterDisableClickZoom: true,
       clusterOpenBalloonOnClick: false,
     });
-    this.clusterer.events.add('click', (e) => {
-      const coords = e.get('target').geometry.getCoordinates();
+    this.clusterer.events.add("click", (e) => {
+      const coords = e.get("target").geometry.getCoordinates();
       this.onClick(coords);
     });
     this.map = new ymaps.Map(this.mapId, {
       center: [55.76, 37.64],
       zoom: 10,
     });
-    this.map.events.add('click', (e) => this.onClick(e.get('coords')));
+    this.map.events.add("click", (e) => this.onClick(e.get("coords")));
     this.map.geoObjects.add(this.clusterer);
   }
 
@@ -57,8 +57,8 @@ export default class InteractiveMap {
 
   createPlacemark(coords) {
     const placemark = new ymaps.Placemark(coords);
-    placemark.events.add('click', (e) => {
-      const coords = e.get('target').geometry.getCoordinates();
+    placemark.events.add("click", (e) => {
+      const coords = e.get("target").geometry.getCoordinates();
       this.onClick(coords);
     });
     this.clusterer.add(placemark);
